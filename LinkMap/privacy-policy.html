@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkMap - Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
+    <style>
+        :root {
+            --primary: #0366d6;
+            --primary-dark: #05264e;
+            --secondary: #f6f8fa;
+            --dark: #12263f;
+            --light: #ffffff;
+            --border-radius: 0.5rem;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--light);
+            line-height: 1.6;
+        }
+
+        /* Top Navigation Bar */
+        .top-bar {
+            background-color: var(--dark);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .top-bar-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0;
+            color: white;
+            text-decoration: none;
+        }
+
+        .top-bar-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .top-bar-link {
+            color: var(--secondary);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* Simple Project Title */
+        .project-title {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 2rem 20px;
+            text-align: center;
+        }
+
+        .project-title h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+        
+        /* Markdown content styling */
+        .markdown-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 20px;
+        }
+
+        @media (max-width: 768px) {
+            .top-bar {
+                padding: 1rem;
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .top-bar-links {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <nav class="top-bar">
+        <a href="https://endsunset.github.io" class="top-bar-title">Endsunset</a>
+        <div class="top-bar-links">
+            <a href="https://endsunset.github.io/documentation/" class="top-bar-link">Documentation</a>
+            <a href="https://endsunset.github.io/videos/" class="top-bar-link">Videos</a>
+            <a href="https://endsunset.github.io/Contact" class="top-bar-link">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Simple Project Title -->
+    <div class="project-title">
+        <h1>LinkMap</h1>
+    </div>
+    
+    <!-- Markdown content container -->
+    <div class="markdown-container">
+        <div id="content" class="markdown-body"></div>
+    </div>
+
+    <script>
+        // Fetch and render README.md
+        const repo = "Endsunset/LinkMap";
+        const branch = "Swift_6";
+        const filePath = "README.md";
+
+        fetch(`https://raw.githubusercontent.com/${repo}/${branch}/${filePath}`)
+            .then(response => response.text())
+            .then(markdown => {
+                // Convert to HTML using GitHub API
+                fetch('https://api.github.com/markdown', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/vnd.github.v3+json'
+                    },
+                    body: JSON.stringify({
+                        text: markdown,
+                        mode: 'markdown'
+                    })
+                })
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById('content').innerHTML = html;
+                });
+            })
+            .catch(error => {
+                console.error("Error fetching Markdown:", error);
+                document.getElementById('content').innerHTML = "<p>Failed to load README.md.</p>";
+            });
+    </script>
+</body>
+</html>
