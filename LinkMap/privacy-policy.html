@@ -6,6 +6,7 @@
     <title>LinkMap - Privacy Policy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
     <link rel="stylesheet" href="https://endsunset.github.io/styles/header.css">
+    <link rel="stylesheet" href="https://endsunset.github.io/styles/footer.css">
     <style>
         
         body {
@@ -49,6 +50,8 @@
     <div class="markdown-container">
         <div id="content" class="markdown-body"></div>
     </div>
+
+    <div id="footer-container"></div>
 
     <script>
         // Load header with error handling
@@ -108,6 +111,27 @@
                         <p>Failed to load privacy policy. Please try again later.</p>
                         <a href="https://github.com/${repo}/blob/${branch}/${filePath}">View on GitHub</a>
                     </div>`;
+            });
+        
+        fetch('https://endsunset.github.io/partials/footer.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Footer not found');
+                return response.text();
+            })
+            .then(html => {
+                document.getElementById('footer-container').innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Footer loading failed:', error);
+                document.getElementById('footer-container').innerHTML = `
+                    <footer>
+                        <p>© ${new Date().getFullYear()} LinkMap Project. All rights reserved.</p>
+                        <div class="legal-links">
+                            <a href="privacy-policy">Privacy Policy</a>
+                            <a href="terms-of-service">Terms of Service</a>
+                            <a href="https://github.com/Endsunset/LinkMap">GitHub Repository</a>
+                        </div>
+                    </footer>`;
             });
     </script>
 </body>
