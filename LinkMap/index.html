@@ -328,14 +328,7 @@
         </section>
     </div>
     
-    <footer>
-        <p>© <span id="year"></span> LinkMap Project. All rights reserved.</p>
-        <div class="legal-links">
-            <a href="privacy-policy">Privacy Policy</a>
-            <a href="terms-of-service">Terms of Service</a>
-            <a href="https://github.com/Endsunset/LinkMap">GitHub Repository</a>
-        </div>
-    </footer>
+     <div id="footer-container"></div>
 
     <script>
         // Load header with error handling
@@ -356,7 +349,21 @@
                     </div>`;
             });
         
-        document.getElementById('year').textContent = new Date().getFullYear();
+       fetch('https://endsunset.github.io/partials/footer.html')
+            .then(response => {
+                if (!response.ok) throw new Error('Footer not found');
+                return response.text();
+            })
+            .then(html => {
+                document.getElementById('footer-container').innerHTML = html;
+            })
+            .catch(error => {
+                console.error('Footer loading failed:', error);
+                document.getElementById('footer-container').innerHTML = `
+                    <footer>
+                        <p>© ${new Date().getFullYear()} LinkMap Project. All rights reserved.</p>
+                    </footer>`;
+            });
     </script>
 </body>
 </html>
