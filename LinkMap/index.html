@@ -331,42 +331,6 @@
     
      <div id="footer-container"></div>
 
-    <script>
-        // Load header with error handling
-        fetch('https://endsunset.github.io/partials/header.html')
-            .then(response => {
-                if (!response.ok) throw new Error('Header not found');
-                return response.text();
-            })
-            .then(html => {
-                document.getElementById('header-container').innerHTML = html;
-            })
-            .catch(error => {
-                console.error('Header loading failed:', error);
-                document.getElementById('header-container').innerHTML = `
-                    <div class="header-fallback">
-                        <a href="/">Home</a> | 
-                        <a href="/documentation/">Documentation</a>
-                    </div>`;
-            });
-        
-       fetch('https://endsunset.github.io/partials/footer.html')
-            .then(response => {
-                if (!response.ok) throw new Error('Footer not found');
-                return response.text();
-            })
-            .then(html => {
-                document.getElementById('footer-container').innerHTML = html;
-            })
-            .catch(error => {
-                console.error('Footer loading failed:', error);
-                document.getElementById('footer-container').innerHTML = `
-                    <footer>
-                        <p>© ${new Date().getFullYear()} LinkMap Project. All rights reserved.</p>
-                    </footer>`;
-            });
-
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
+    <script type="module" src="/assets/scripts/main.js"></script>
 </body>
 </html>
