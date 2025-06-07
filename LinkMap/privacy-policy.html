@@ -54,26 +54,8 @@
 
     <div id="footer-container"></div>
 
+    <script src="https://endsunset.github.io/assets/scripts/main.js"></script>
     <script>
-        // Load header with error handling
-        fetch('https://endsunset.github.io/partials/header.html')
-            .then(response => {
-                if (!response.ok) throw new Error('Header not found');
-                return response.text();
-            })
-            .then(html => {
-                document.getElementById('header-container').innerHTML = html;
-            })
-            .catch(error => {
-                console.error('Header loading failed:', error);
-                document.getElementById('header-container').innerHTML = `
-                    <div class="header-fallback">
-                        <a href="/">Endsunset</a> | 
-                        <a href="/documentation/">Documentation</a>
-                        <a href="/videos/">Videos</a>
-                    </div>`;
-            });
-
         fetch('https://endsunset.github.io/documentation/LinkMap/privacy-policy.md')
             .then(response => {
                 if (!response.ok) throw new Error('Policy not found');
@@ -105,28 +87,6 @@
                     <div class="error-message">
                         <p>Failed to load the content. Please try again later.</p>
                     </div>`;
-            });
-        
-        fetch('https://endsunset.github.io/partials/footer.html')
-            .then(response => {
-                if (!response.ok) throw new Error('Footer not found');
-                return response.text();
-            })
-            .then(html => {
-                document.getElementById('footer-container').innerHTML = html;
-                document.getElementById('year').textContent = new Date().getFullYear();
-            })
-            .catch(error => {
-                console.error('Footer loading failed:', error);
-                document.getElementById('footer-container').innerHTML = `
-                    <footer>
-                        <p>© ${new Date().getFullYear()} LinkMap Project. All rights reserved.</p>
-                        <div class="legal-links">
-                            <a href="privacy-policy">Privacy Policy</a>
-                            <a href="terms-of-service">Terms of Service</a>
-                            <a href="https://github.com/Endsunset/LinkMap">GitHub Repository</a>
-                        </div>
-                    </footer>`;
             });
     </script>
 </body>
