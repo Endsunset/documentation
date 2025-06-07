@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LinkMap - Privacy Policy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/5.2.0/github-markdown.min.css">
-    <link rel="stylesheet" href="https://endsunset.github.io/styles/header.css">
-    <link rel="stylesheet" href="https://endsunset.github.io/styles/footer.css">
+    <link rel="stylesheet" href="https://endsunset.github.io/assets/styles/components/header.css">
+    <link rel="stylesheet" href="https://endsunset.github.io/assets/styles/components/footer.css">
     <style>
         
         body {
@@ -73,13 +73,7 @@
                     </div>`;
             });
 
-        // Load privacy policy with cache busting
-        const repo = "Endsunset/LinkMap";
-        const branch = "Swift_6";
-        const filePath = "PRIVACY.md";
-        const cacheBuster = new Date().getTime();
-
-        fetch(`https://raw.githubusercontent.com/${repo}/${branch}/${filePath}?t=${cacheBuster}`)
+        fetch('https://endsunset.github.io/documentation/LinkMap/privacy-policy.md')
             .then(response => {
                 if (!response.ok) throw new Error('Policy not found');
                 return response.text();
@@ -105,11 +99,10 @@
                 document.getElementById('content').innerHTML = html;
             })
             .catch(error => {
-                console.error('Policy loading failed:', error);
+                console.error('Content loading failed:', error);
                 document.getElementById('content').innerHTML = `
                     <div class="error-message">
-                        <p>Failed to load privacy policy. Please try again later.</p>
-                        <a href="https://github.com/${repo}/blob/${branch}/${filePath}">View on GitHub</a>
+                        <p>Failed to load the content. Please try again later.</p>
                     </div>`;
             });
         
@@ -120,6 +113,7 @@
             })
             .then(html => {
                 document.getElementById('footer-container').innerHTML = html;
+                document.getElementById('year').textContent = new Date().getFullYear();
             })
             .catch(error => {
                 console.error('Footer loading failed:', error);
