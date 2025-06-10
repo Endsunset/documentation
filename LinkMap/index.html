@@ -34,16 +34,6 @@
             margin-top: 0; /* Remove any default margin */
         }
         
-        .project-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 20px;
-            background: linear-gradient(to bottom, rgba(246,248,250,0.3), var(--light));
-        }
-        
         h1 {
             font-size: 2.5rem;
             margin: 0 0 0.5rem;
@@ -76,30 +66,6 @@
             max-width: 1000px;
             margin: 0 auto;
             padding: 2rem;
-        }
-        
-        .badges {
-            margin: 1rem 0;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 0.5rem;
-        }
-        
-        .badge {
-            display: inline-block;
-            padding: 0.35em 0.65em;
-            border-radius: var(--border-radius);
-            background-color: rgba(255,255,255,0.2);
-            color: white;
-            font-size: 0.875em;
-            text-decoration: none;
-            transition: var(--transition);
-        }
-        
-        .badge:hover {
-            background-color: rgba(255,255,255,0.3);
-            transform: translateY(-2px);
         }
         
         .feature-grid {
@@ -214,10 +180,6 @@
     <header class="project-header">
         <h1>LinkMap</h1>
         <p>Document-based application for homeless feeding activity organization</p>
-        <div class="badges">
-            <a href="https://raw.githubusercontent.com/Endsunset/LinkMap/Swift_6/LICENSE" class="badge">MIT License</a>
-            <span class="badge">iOS 18+ | iPadOS 18+</span>
-        </div>
     </header>
     
     <div class="container">
