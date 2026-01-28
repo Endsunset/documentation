@@ -9,7 +9,7 @@
 
 ## 2. Data Collection
 
-- Data is not collected from this app.
+- Data is not collected from the app.
 
 ## 3. Third-Party Services
 
