@@ -5,7 +5,7 @@
 
 ## 1. Overview
 
-LinkMap ("the App", "we", "us", or "our") respects your privacy and is committed to protecting it through our compliance with this policy.
+- LinkMap ("the App", "we", "us", or "our") respects your privacy and is committed to protecting it through our compliance with this policy.
 
 ## 2. Data Collection
 
