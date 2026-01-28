@@ -1,73 +1,30 @@
 # LinkMap Privacy Policy
 
-**Last Updated:** June 2, 2025  
+**Last Updated:** Jan 28, 2026
 **Effective Date:** May 31, 2025
 
-## 1. Introduction
+## 1. Overview
 
-LinkMap ("the App", "we", "us", or "our") respects your privacy and is committed to protecting it through our compliance with this policy. This Privacy Policy describes:
+LinkMap ("the App", "we", "us", or "our") respects your privacy and is committed to protecting it through our compliance with this policy.
 
-- The types of information we may collect or that you may provide
-- Our practices for collecting, using, maintaining, protecting, and disclosing that information
+## 2. Data Collection
 
-## 2. Information Collection and Use
+- Data is not collected from this app.
 
-### 2.1 Data Collection
+## 3. Third-Party Services
 
-LinkMap is designed with privacy in mind:
+To provide core functionality, LinkMap integrates with the following services provided by Apple Inc.:
 
-- **No Personal Data Collection:** We do not collect, store, or process any personal information from users
-- **No Usage Analytics:** We do not track user behavior or collect usage statistics
-- **No Device Information:** We do not access device identifiers or hardware information
+- **iCloud (CloudKit) – As a Data Processor:**
+    We use **Apple's iCloud service (via the CloudKit framework)** to securely store and synchronize your user-generated content and app preferences across your devices. When you enable sync, your data is stored on Apple's servers and processed according to their [iCloud Terms and Conditions](https://www.apple.com/legal/internet-services/icloud/). In this context, Apple acts as a **data processor** on our behalf for this specific, contracted service.
 
-### 2.2 MapKit Services
+- **Apple Maps (MapKit) – As an Independent Data Controller:**
+    The App uses **Apple's MapKit framework** to provide mapping and location search features. When you perform a search or interact with the map, those requests are sent **directly to Apple**. Apple processes this data independently to provide the map service. For this data, Apple acts as an **independent data controller**, and their handling of location and search query data is governed solely by their own [Privacy Policy](https://www.apple.com/legal/privacy/).
 
-The App utilizes Apple's MapKit framework for mapping services:
-
-- All map data processing occurs locally on your device
-- Map queries are handled directly by Apple's services
-- We have no access to location data or search queries made through MapKit
-
-For information about Apple's data practices, please review [Apple's Privacy Policy](https://www.apple.com/legal/privacy/).
-
-## 3. Data Security
-
-We implement appropriate technical measures to ensure:
-
-- **Local Processing:** All app functionality operates on your device without external data transmission
-- **No Data Retention:** No user-generated content is stored on our servers (as we don't operate any)
-- **No Third-Party Sharing:** We do not share data with any third parties
-
-## 4. Children's Privacy
-
-LinkMap:
-
-- Is not directed to children under the age of 13
-- Does not knowingly collect personal information from children under 13
-- Complies with the Children's Online Privacy Protection Act (COPPA)
-
-## 5. Compliance with Regulations
-
-We adhere to all applicable privacy laws and regulations, including:
-
-- **China:** 
-  - 《中华人民共和国网络安全法》(Cybersecurity Law)
-  - 《个人信息保护法》(PIPL)
-  - 《数据安全法》(Data Security Law)
-- **International:**
-  - GDPR (for EU users)
-  - CCPA (for California residents)
-
-## 6. Policy Updates
+## 4. Policy Updates
 
 We may update this Privacy Policy to reflect changes in our practices. When we do:
 
 - We will post the new policy with a revised "Last Updated" date
 - Material changes will be notified through the App Store listing
 - Your continued use after changes constitutes acceptance
-
-## 7. Contact Information
-
-For questions about this privacy policy or our privacy practices, please contact us via:
-
-- [GitHub Issues](https://github.com/Endsunset/LinkMap/issues)
